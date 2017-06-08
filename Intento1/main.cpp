@@ -481,3 +481,46 @@ while(x!=1 && x!=2)
     }
 
 }
+
+void comprobar3Op(int &x){
+
+while(x!=1 && x!=2 && x!=3)
+    {
+    cout<<"Opcion Incorrecta\n";
+    cin>>x;
+    }
+}
+
+void comprobar4Op(int &x){
+
+while(x!=1 && x!=2 && x!=3 && x!=4)
+    {
+    cout<<"Opcion Incorrecta\n";
+    cin>>x;
+    }
+
+}
+
+void comprobarOp5(int &x){
+
+while(x!=1 && x!=2 && x!=3 && x!=4 && x!=5)
+    {
+    cout<<"Opcion Incorrecta\n";
+    cin>>x;
+    }
+
+}
+
+void comprobarOp8(int &x){
+
+while(x!=1 && x!=2 && x!=3 && x!=4 && x!=5 && x!=6 && x!=7 && x!=8)
+    {
+    cout<<"Opcion Incorrecta\n";
+    cin>>x;
+    }
+
+}
+
+
+
+
