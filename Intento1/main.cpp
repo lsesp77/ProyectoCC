@@ -18,16 +18,31 @@ using namespace std;
 /* de char a int
 
 #include <stdlib.h>
-    char a[]={'1','2','3'};
-    int b=atoi(a);
-    cout<<b+2;
+char a[]={'1','2','3'};
+int b=atoi(a);
+cout<<b+2;
 
 */
+//Declaracion de instancias
+Clientes clientes[20];
+Computadora computadoras[20];
+Audifonos audifonos[20];
+Software software[20];
+TV Tv[20];
+Impresoras impresoras[20];
+/*vector <Clientes *> clientes;
+vector <Computadora *> computadoras;*/
 
+
+
+vector <Producto *> productos;
 
 void printMenu();
 void printCategorias();
 void printComponentes();
+void ordenAlfabetico();
+void ordenPrecio();
+void comprobar2Op(int &x);
 
 int main()
 {
@@ -55,7 +70,7 @@ int main()
 
     //Declaracion de variables
 
-    int op,c=0,p=0,cat;
+    int op,c=0,p=0,cat,lo;
     int edad,cantidad;
     float precio;
     string direccion,tipo,categoria;
@@ -86,6 +101,7 @@ int main()
                 {
                     case 1:
                         {
+
                             //char *au= new char [4];
                             char au[4]; //codigo
                             int *r=new int;
@@ -241,7 +257,7 @@ int main()
                             /*while(caracteristicas[i]!=NULL)
                                 carac[i]=caracteristicas[i];*/
 
-                            impresoras[p].setData(nomb,precio,"Computadora",cod,cantidad,tipo);
+
                             productos.push_back(&impresoras[p]);
                            // computadoras[p].getData();
                             delete r;
@@ -283,6 +299,100 @@ int main()
             case 3:
                 //Muestra todos los datos de todos los productos
                 //productos.getAllData(y);
+
+
+                printCategorias();
+                cin>>lo;
+                while(lo!=1 && lo!=2 && lo!=3 && lo!=4 && lo!=5)
+                    {
+                        cout<<"Opcion Incorrecta\n";
+                        cin>>lo;
+                    }
+
+                switch(lo)
+                {
+
+                     case 1:
+
+                         {
+
+                            cout<<"1. Por Precio: "<<endl;
+                            cout<<"2. Por Orden Alfabetico: "<<endl;
+                            cin>>lo;
+                            comprobar2Op(lo);
+                            switch(lo)
+                            {
+                                case 1: ordenPrecio(); break;
+
+                                case 2: ordenAlfabetico(); break;
+
+                            }
+                            break;
+                         }
+                     case 2:
+                        {
+
+                           cout<<"1. Por Precio: "<<endl;
+                           cout<<"2. Por Orden Alfabetico: "<<endl;
+                           cin>>lo;
+                           comprobar2Op(lo);
+                           switch(lo)
+                            {
+                                case 1: ordenPrecio(); break;
+
+                                case 2: ordenAlfabetico(); break;
+                            }
+                            break;
+                        }
+                     case 3:
+                        {
+
+                            cout<<"1. Por Precio: "<<endl;
+                            cout<<"2. Por Orden Alfabetico: "<<endl;
+                            cin>>lo;
+                            comprobar2Op(lo);
+                            switch(lo)
+                            {
+                                case 1: ordenPrecio(); break;
+
+                                case 2: ordenAlfabetico(); break;
+                            }
+                            break;
+                        }
+                     case 4:
+                        {
+
+                            cout<<"1. Por Precio: "<<endl;
+                            cout<<"2. Por Orden Alfabetico: "<<endl;
+                            cin>>lo;
+                            comprobar2Op(lo);
+                            switch(lo)
+                            {
+                                case 1: ordenPrecio(); break;
+
+                                case 2: ordenAlfabetico(); break;
+                            }
+                            break;
+                        }
+                     case 5:
+                        {
+                            cout<<"1. Por Precio: "<<endl;
+                            cout<<"2. Por Orden Alfabetico: "<<endl;
+                            cin>>lo;
+                            comprobar2Op(lo);
+                            switch(lo)
+                            {
+                                case 1: ordenPrecio(); break;
+
+                                case 2: ordenAlfabetico(); break;
+                            }
+                            break;
+                        }
+
+                }
+
+
+
                 break;
             case 4:
 
@@ -320,7 +430,7 @@ void printMenu()
 
 void printCategorias()
 {
-    system("cls");
+    /*system("cls");*/
     cout<<"\n\n 1. Audifonos "  <<endl
         <<" 2. Computadoras "   <<endl
         <<" 3. Impresoras "     <<endl
@@ -331,6 +441,7 @@ void printCategorias()
 
 }
 
+
 void printComponentes(){
 
     cout<<"Componentes"<<endl;
@@ -338,3 +449,35 @@ void printComponentes(){
 }
 
 
+
+
+
+void ordenPrecio(){
+
+ cout<<"jiji";
+
+
+
+}
+
+
+
+void ordenAlfabetico(){
+
+
+cout<<"jejej";
+
+
+}
+
+
+
+void comprobar2Op(int &x){
+
+while(x!=1 && x!=2)
+    {
+    cout<<"Opcion Incorrecta\n";
+    cin>>x;
+    }
+
+}

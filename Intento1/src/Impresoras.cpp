@@ -6,7 +6,7 @@ Impresoras::Impresoras()
 }
 
 
-void Impresoras::setData(string miNombre, float miPrecio, string miCategoria, string miCodigo, int miCantidad, string miTipo, string miCaracteristica[])
+void Impresoras::setData(string miNombre, float miPrecio, string miCategoria, string miCodigo, int miCantidad, string miTipo, string miCaracteristica,string miTamanho)
 {
     nombre=miNombre;
     precio=miPrecio;
@@ -14,7 +14,7 @@ void Impresoras::setData(string miNombre, float miPrecio, string miCategoria, st
     codigo=miCodigo;
     cantidad=miCantidad;
     tipo=miTipo;
-    for(int x=0;x<miCaracteristica.size();x++)
-        caracteristicas[x]=miCaracteristica[x];
+    caracteristicas=miCaracteristica;
+    tamanho=miTamanho;
 
 }

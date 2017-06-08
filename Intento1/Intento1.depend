@@ -268,3 +268,61 @@
 1496593841 source:c:\users\wair.esp\downloads\ccomp-1-master\proyecto final\intento1\src\tv.cpp
 	"TV.h"
 
+1496593997 source:c:\users\wair.esp\desktop\proyectocc\intento1\src\audifonos.cpp
+	"Audifonos.h"
+
+1496594015 c:\users\wair.esp\desktop\proyectocc\intento1\include\audifonos.h
+	"Producto.h"
+
+1496593997 c:\users\wair.esp\desktop\proyectocc\intento1\include\producto.h
+	<iostream>
+
+1496418962 source:c:\users\wair.esp\desktop\proyectocc\intento1\src\clientes.cpp
+	"Clientes.h"
+	<iostream>
+
+1496418962 c:\users\wair.esp\desktop\proyectocc\intento1\include\clientes.h
+	<iostream>
+
+1496593854 source:c:\users\wair.esp\desktop\proyectocc\intento1\src\computadora.cpp
+	"Computadora.h"
+
+1496593567 c:\users\wair.esp\desktop\proyectocc\intento1\include\computadora.h
+	"Producto.h"
+
+1496593471 source:c:\users\wair.esp\desktop\proyectocc\intento1\src\producto.cpp
+	"Producto.h"
+	<iostream>
+
+1496593800 source:c:\users\wair.esp\desktop\proyectocc\intento1\src\software.cpp
+	"Software.h"
+
+1496593914 c:\users\wair.esp\desktop\proyectocc\intento1\include\software.h
+	"Producto.h"
+
+1496593841 source:c:\users\wair.esp\desktop\proyectocc\intento1\src\tv.cpp
+	"TV.h"
+
+1496593838 c:\users\wair.esp\desktop\proyectocc\intento1\include\tv.h
+	"Producto.h"
+
+1496879927 source:c:\users\wair.esp\desktop\proyectocc\intento1\main.cpp
+	<iostream>
+	<stdlib.h>
+	<vector>
+	<string.h>
+	"Clientes.h"
+	"Producto.h"
+	"Audifonos.h"
+	"Impresoras.h"
+	"Software.h"
+	"TV.h"
+	"Computadora.h"
+	<stdlib.h>
+
+1496871945 c:\users\wair.esp\desktop\proyectocc\intento1\include\impresoras.h
+	"Producto.h"
+
+1496872092 source:c:\users\wair.esp\desktop\proyectocc\intento1\src\impresoras.cpp
+	"Impresoras.h"
+
