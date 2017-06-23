@@ -3,6 +3,8 @@
 #include <vector>
 #include <string.h>
 
+//#include <algorithm>
+
 #include "Clientes.h"
 #include "Producto.h"
 #include "Audifonos.h"
@@ -10,9 +12,17 @@
 #include "Software.h"
 #include "TV.h"
 #include "Computadora.h"
+
+
+
+
+
+
 //A1023
 //I102
 using namespace std;
+
+
 
 
 /* de char a int
@@ -21,6 +31,19 @@ using namespace std;
 char a[]={'1','2','3'};
 int b=atoi(a);
 cout<<b+2;
+
+
+burbuja:
+for(int i=0;i<f2;i++)
+{
+    for(int j=0;j<f2;j++)
+    {
+        if(strcmp(producto2[i],producto2[j])<0)
+        {
+
+        }
+    }
+}
 
 */
 //Declaracion de instancias
@@ -37,12 +60,32 @@ vector <Computadora *> computadoras;*/
 
 vector <Producto *> productos;
 
+
+/*
+
+
+
+
+
+*/
+
+
+
+
+
+
 void printMenu();
 void printCategorias();
 void printComponentes();
-void ordenAlfabetico();
-void ordenPrecio();
+void ordenAlfabetico(string categoria,vector<Producto *> productos);
+void ordenPrecio(string categoria,vector<Producto *> productos);
+
 void comprobar2Op(int &x);
+void comprobar3Op(int &x);
+void comprobar4Op(int &x);
+void comprobar5Op(int &x);
+void comprobar6Op(int &x);
+void comprobar8Op(int &x);
 
 int main()
 {
@@ -69,6 +112,7 @@ int main()
     }*/
 
     //Declaracion de variables
+    int p1=0,p2=0,p3=0,p4=0,p5=0; //Contador de cada tipo de producto, codigo
 
     int op,c=0,p=0,cat,lo;
     int edad,cantidad;
@@ -78,9 +122,11 @@ int main()
     do
     {
         printMenu(); cin>>op;
+        comprobar6Op(op);
         switch(op)
             {
             case 1:
+                {
                 //datos del cliente
                 cout<<"\nDatos del cliente "<<c+1<<": \n\n";
                 cout<<"Ingrese el nombre: "; cin>>nombre;
@@ -93,23 +139,24 @@ int main()
                 clientes[c].setData(nombre,direccion,edad,sexo);
                 c++; //actualiza numero de cliente(codigo)
                 break;
+                }
             case 2:
                 {
 
                 printCategorias(); cin>>cat;
+                comprobar5Op(cat);
                 switch(cat)
                 {
                     case 1:
                         {
-
                             //char *au= new char [4];
-                            char au[4]; //codigo
+                           /* char au[4]; //codigo
                             int *r=new int;
 
                             string cod,nomb;
                             au[0]='A';
 
-                            string tier1, tier2,conexion;
+                            string tier1,tier2,conexion;
 
                             cout<<"Ingrese el Nombre del Producto: ";
                             cin>>nombre;
@@ -126,22 +173,16 @@ int main()
                             cout<<"\n1. Auricular pasivo"<<endl
                                 <<"2. Auricular activo"<<endl<<endl;
                                 cin>>*r;
-                            while(*r!=1 and *r!=2)//verifies if *r is correct
-                                {
-                                    cout<<"Opcion incorrecta\n";
-                                    cin>>*r;
-                                }
+                            comprobar2Op(*r);
+
                             (*r==1)? au[1]='0':au[1]='1';
                             (*r==1)? tier1="Auricular pasivo":tier1="Auricular activo";
                             //au++;
                             cout<<"1. Auriculares abiertos"<<endl
                                 <<"2. Auriculares cerrados"<<endl<<endl;
                                 cin>>*r;
-                            while(*r!=1 and *r!=2)
-                                {
-                                    cout<<"Opcion incorrecta\n";
-                                    cin>>*r;
-                                }
+                            comprobar2Op(*r);
+
                                 (*r==1)? au[2]='0':au[2]='1'; //if statement
                                 (*r==1)? tier2="Auriculares abiertos":tier2="Auriculares cerrados";
                             //au++;
@@ -149,22 +190,74 @@ int main()
                             cout<<"1. Conexion wireless"<<endl
                                 <<"2. Conexion alambrica"<<endl<<endl;
                                 cin>>*r;
-                            while(*r!=1 and *r!=2)
-                                {
-                                    cout<<"Opcion incorrecta\n";
-                                    cin>>*r;
-                                }
+                            comprobar2Op(*r);
                                 (*r==1)? au[3]='0':au[3]='1';
                                 (*r==1)? conexion="Conexion wireless":conexion="Conexion alambrica";
                             //au--;
                             cod=au;
-                            audifonos[p].setData(nomb,precio,"Audifono",cod,cantidad,conexion,tier1,tier2);
-
-                            productos.push_back(&audifonos[p]);
-
-                            audifonos[p].getData();
+                            audifonos[p1].setData(nomb,precio,"Audifonos",cod,cantidad,conexion,tier1,tier2);
+                            productos.push_back(&audifonos[p1]);
+                            //productos[(int(productos.size()))]->getData();
+                            p1++;
                             delete r;
                             break;
+                            */
+
+                            char au[2]; //codigo
+                            int *r=new int;
+
+                            string cod,nomb;
+                            au[0]='A';
+
+                            string tier1,tier2,conexion;
+
+                            cout<<"Ingrese el Nombre del Producto: ";
+                            cin>>nombre;
+                            nomb=nombre;
+
+                            cout<<"Ingresar precio: ";
+                            cin>>precio;
+
+                            cout<<"Ingrese Cantidad: ";
+                            cin>>cantidad;
+
+
+
+                            cout<<"\n1. Auricular pasivo"<<endl
+                                <<"2. Auricular activo"<<endl<<endl;
+                                cin>>*r;
+                            comprobar2Op(*r);
+
+                            (*r==1)? tier1="Auricular pasivo":tier1="Auricular activo";
+                            //au++;
+                            cout<<"1. Auriculares abiertos"<<endl
+                                <<"2. Auriculares cerrados"<<endl<<endl;
+                                cin>>*r;
+                            comprobar2Op(*r);
+
+                                (*r==1)? tier2="Auriculares abiertos":tier2="Auriculares cerrados";
+                            //au++;
+
+                            cout<<"1. Conexion wireless"<<endl
+                                <<"2. Conexion alambrica"<<endl<<endl;
+                                cin>>*r;
+                            comprobar2Op(*r);
+                                (*r==1)? conexion="Conexion wireless":conexion="Conexion alambrica";
+                            //au--;
+
+                            au[1]='0'+p1;
+
+                            cod=au;
+                            audifonos[p1].setData(nomb,precio,"Audifonos",cod,cantidad,conexion,tier1,tier2);
+                            productos.push_back(&audifonos[p1]);
+                            //productos[(int(productos.size()))]->getData();
+                            p1++;
+                            delete r;
+                            break;
+
+
+
+
                         }
                     case 2:
                         {
@@ -176,7 +269,7 @@ int main()
                             string cod,nomb;
                             comp[0]='C';
 
-                            string tipo;
+                            string componente;
 
                             cout<<"Ingrese el Nombre del Producto: ";
                             cin>>nombre;
@@ -193,35 +286,196 @@ int main()
                             cout<<"\n1. Componente"<<endl;
                             printComponentes();
                             cin>>*r;
-                            while(*r!=1 and *r!=2 and *r!=3 and *r!=4 and *r!=5 and *r!=6 and *r!=7)//verifies if *r is correct
-                                {
-                                    cout<<"Opcion incorrecta\n";
-                                    cin>>*r;
-                                }
+                            comprobar8Op(*r);
+
+                            switch(*r)
+                            {
+                            case 1:
+                                comp[1]=0;
+                                componente="Fuente";
+                            case 2:
+                                comp[1]=1;
+                                componente="CPU";
+                            case 3:
+                                comp[1]=2;
+                                componente="Memoria RAM";
+                            case 4:
+                                comp[1]=3;
+                                componente="HDD";
+                            case 5:
+                                comp[1]=4;
+                                componente="GPU";
+                            case 6:
+                                comp[1]=5;
+                                componente="MotherBoard";
+                            case 7:
+                                comp[1]=6;
+                                componente="Case";
+                            case 8:
+                                comp[1]=7;
+                                componente="Perifericos";
+                            }
+
+                            comp[1]='0'+p2;
 
                             //comp--;
                             cod=comp;
 
-                            computadoras[p].setData(nomb,precio,"Computadora",cod,cantidad,tipo);
-                            productos.push_back(&computadoras[p]);
+                            computadoras[p2].setData(nomb,precio,"Computadoras",cod,cantidad,tipo);
+                            productos.push_back(&computadoras[p2]);
                            // computadoras[p].getData();
+                            p2++;
                             delete r;
-
-                           break;
+                            break;
                         }
                     case 3:
                         {
                             char imp[2]; //codigo
                             int *r=new int;
+
+                            string cod,nomb;
+                            imp[0]='I';
                             //void setData(string miNombre, float miPrecio,
                             //string miCategoria, s
                             //tring miCodigo, int miCantidad,
                             //string miTipo, string miCaracteristica[]);
 
+
+                            string caracteristica,tamanho,tipo;
+
+
+                            cout<<"Ingrese el Nombre del Producto: ";
+                            cin>>nombre;
+                            nomb=nombre;
+
+                            cout<<"Ingresar precio: ";
+                            cin>>precio;
+
+                            cout<<"Ingrese Cantidad: ";
+                            cin>>cantidad;
+
+                            cout<<"Ingrese el tamanho de impresion\n";
+                            cin>>tamanho;
+
+                            cout<<"\n\nCaracteristica: "<<endl
+                                <<"1. Blanco y negro"   <<endl
+                                <<"2. A color"          <<endl;
+
+                            cin>>*r;
+                            comprobar2Op(*r);
+
+                            (*r==1)? caracteristica="Blanco y negro" :caracteristica="A color";
+
+                            cout<<"\n1.Impresion laser\n"
+                                <<"2. Impresion por cartucho"<<endl;
+                                cin>>*r;
+                            comprobar2Op(*r);
+
+                            (*r==1)? tipo="Impresion laser":tipo="Impresion por cartucho";
+
+
+                            imp[1]='0'+p3;
+
+                            //comp--;
+                            cod=imp;
+
+                            /*while(caracteristicas[i]!=NULL)
+                                carac[i]=caracteristicas[i];*/
+
+                            impresoras[p3].setData(nomb, precio, "Impresoras", cod, cantidad, tipo, caracteristica, tamanho);
+                            productos.push_back(&impresoras[p3]);
+                            //computadoras[p3].getData();
+                            p3++;
+                            delete r;
+                            break;
+                        }
+                    case 4:
+                        {
+                            //software
+
+                            char soft[2]; //codigo
+                            int *r=new int;
+
                             string cod,nomb;
-                            imp[0]='I';
-                            int i;
-                            string tipo;
+                            soft[0]='S';
+
+                            string tier1, tier2;
+
+                            cout<<"Ingrese el Nombre del Producto: ";
+                            cin>>nombre;
+                            nomb=nombre;
+
+                            cout<<"Ingresar precio: ";
+                            cin>>precio;
+
+                            cout<<"Ingrese Cantidad: ";
+                            cin>>cantidad;
+
+                            cout<<"1. Educacion" <<endl
+                                <<"2. Diseño"    <<endl
+                                <<"3. Finanzas"  <<endl
+                                <<"4. Seguridad" <<endl;
+                            cin>>*r;
+                            comprobar4Op(*r);
+
+                            (*r==1)? tier1="Educacion" : (*r==2)? tier1="Diseño" : (*r==3)? tier1="Finanzas" : tier1="Seguridad";
+
+                            switch(*r)
+                            {
+                                case 1:
+                                    cout<<"1. Lenguaje"<<endl
+                                        <<"2. Tipeo"<<endl
+                                        <<"3. Ninhos"<<endl;
+                                        cin>>*r;
+                                        comprobar3Op(*r);
+                                        (*r==1)? tier2="Lenguaje" : (*r==2)? tier2="Tipeo" : tier2="Ninhos";
+                                        break;
+                                case 2:
+                                    cout<<"1. CAD"<<endl
+                                        <<"2. Photography"<<endl
+                                        <<"3. Ilustracion"<<endl;
+                                        cin>>*r;
+                                        comprobar3Op(*r);
+                                        (*r==1)? tier2="CAD" : (*r==2)? tier2="Photography" : tier2="Ilustracion";
+                                        break;
+                                case 3:
+                                    cout<<"1. Contabilidad de empresas"<<endl
+                                        <<"2. Contabilidad personal"<<endl
+                                        <<"3. Distribucion de sueldos"<<endl;
+                                        cin>>*r;
+                                        comprobar3Op(*r);
+                                        (*r==1)? tier2="Contabilidad de empresas" : (*r==2)? tier2="Contabilidad personal" : tier2="Distribucion de sueldos";
+                                        break;
+                                case 4:
+                                    cout<<"1. Antivirus"<<endl
+                                        <<"2. Antimalware"<<endl
+                                        <<"3. Parental control"<<endl;
+                                        cin>>*r;
+                                        comprobar3Op(*r);
+                                        (*r==1)? tier2="Antivirus" : (*r==2)? tier2="Antimalware" : tier2="Parental control";
+                                        break;
+
+                            }
+
+                            soft[1]='0'+p4;
+
+                            cod=soft;
+
+                            software[p4].setData(nomb,precio,"software",cod,cantidad,tier1,tier2);
+                            productos.push_back(&software[p4]);
+                            //computadoras[p4].getData();
+                            p4++;
+                            break;
+                        }
+                    case 5:
+                        {
+                            //television
+
+                            char tele[2]; //codigo
+                            int *r=new int;
+
+                            string cod,nomb;
+                            tele[0]='T';
 
                             cout<<"Ingrese el Nombre del Producto: ";
                             cin>>nombre;
@@ -234,48 +488,44 @@ int main()
                             cin>>cantidad;
 
 
+                            string calidad, caracteristicas, pantallaTy; //Caracteristica pasar a array
+                            float tam;
 
-                            cout<<"\n1. Componente"<<endl;
+                            cout<<"Calidad"        <<endl
+                                <<"1. HD"          <<endl
+                                <<"2. Ultra HD"    <<endl
+                                <<"3. Ultra HD 4K" <<endl;
+                                cin>>*r;
+                            comprobar3Op(*r);
+                            (*r==1)? calidad="HD" : (*r==2)? calidad="Ultra HD" : calidad="Ultra HD 4K";
 
-                            cout<<"Ingrese Nmr Caracteristica(s)"<<endl;
-                            cin>>i;
-                            string caracteristicas[i];
+                            cout<<"Caracteristicas" <<endl
+                                <<"1. Curvado"      <<endl
+                                <<"2. Smart"        <<endl;
+                                cin>>*r;
+                                comprobar2Op(*r);
+                                (*r==1)? caracteristicas="Curvado" : caracteristicas="Smart" ;
 
-                            cout<<"Ingrese Caracteristica(s):"<<endl;
-                            for(int x=0;x<i;x++)
-                                cin>>caracteristicas[x];
-
-                            cin>>*r;
-                            while(*r!=1 and *r!=2 and *r!=3 and *r!=4 and *r!=5 and *r!=6 and *r!=7)//verifies if *r is correct
-                                {
-                                    cout<<"Opcion incorrecta\n";
-                                    cin>>*r;
-                                }
-                            //comp--;
-                            cod=imp;
-
-                            /*while(caracteristicas[i]!=NULL)
-                                carac[i]=caracteristicas[i];*/
-
-
-                            productos.push_back(&impresoras[p]);
-                           // computadoras[p].getData();
-                            delete r;
-
-                           break;
-                        }
-                    case 4:
-                        {
-                            //software
+                            cout<<"Tipo de pantalla"<<endl
+                                <<"1. LED"          <<endl
+                                <<"2. LCD"          <<endl
+                                <<"3. OLED"         <<endl;
+                                cin>>*r;
+                                comprobar3Op(*r);
+                            (*r==1)? pantallaTy="LED" : (*r==2)? pantallaTy="LCD"  : pantallaTy="OLED" ;
 
 
-                            break;
-                        }
-                    case 5:
-                        {
-                            //television
+                            cout<<"Ingrese el tamanho en pulgadas"<<endl;
+                            cin>>tam;
 
+                            tele[1]='0'+p5;
 
+                            cod=tele;
+
+                            Tv[p5].setData(nomb,precio,"television",cod,cantidad,calidad,caracteristicas,pantallaTy,tam);
+                            productos.push_back(&Tv[p5]);
+                            //computadoras[p5].getData();
+                            p5++;
                             break;
                         }
                 }
@@ -300,15 +550,10 @@ int main()
                 //Muestra todos los datos de todos los productos
                 //productos.getAllData(y);
 
-
                 printCategorias();
                 cin>>lo;
-                while(lo!=1 && lo!=2 && lo!=3 && lo!=4 && lo!=5)
-                    {
-                        cout<<"Opcion Incorrecta\n";
-                        cin>>lo;
-                    }
-
+                comprobar5Op(lo);
+                (lo==1)? categoria="Audifonos" : (lo==2)? categoria="Computadoras" : (lo==3)? categoria="Impresoras" : (lo==4)? categoria="Software" : categoria="Television";
                 switch(lo)
                 {
 
@@ -322,25 +567,24 @@ int main()
                             comprobar2Op(lo);
                             switch(lo)
                             {
-                                case 1: ordenPrecio(); break;
+                                case 1: ordenPrecio(categoria, productos); break;
 
-                                case 2: ordenAlfabetico(); break;
-
+                                case 2: ordenAlfabetico(categoria, productos); break;
                             }
                             break;
                          }
                      case 2:
                         {
 
-                           cout<<"1. Por Precio: "<<endl;
-                           cout<<"2. Por Orden Alfabetico: "<<endl;
-                           cin>>lo;
-                           comprobar2Op(lo);
-                           switch(lo)
+                            cout<<"1. Por Precio: "<<endl;
+                            cout<<"2. Por Orden Alfabetico: "<<endl;
+                            cin>>lo;
+                            comprobar2Op(lo);
+                            switch(lo)
                             {
-                                case 1: ordenPrecio(); break;
+                                case 1: ordenPrecio(categoria, productos); break;
 
-                                case 2: ordenAlfabetico(); break;
+                                case 2: ordenAlfabetico(categoria, productos); break;
                             }
                             break;
                         }
@@ -353,9 +597,9 @@ int main()
                             comprobar2Op(lo);
                             switch(lo)
                             {
-                                case 1: ordenPrecio(); break;
+                                case 1: ordenPrecio(categoria, productos); break;
 
-                                case 2: ordenAlfabetico(); break;
+                                case 2: ordenAlfabetico(categoria, productos); break;
                             }
                             break;
                         }
@@ -368,9 +612,9 @@ int main()
                             comprobar2Op(lo);
                             switch(lo)
                             {
-                                case 1: ordenPrecio(); break;
+                                case 1: ordenPrecio(categoria, productos); break;
 
-                                case 2: ordenAlfabetico(); break;
+                                case 2: ordenAlfabetico(categoria, productos); break;
                             }
                             break;
                         }
@@ -382,30 +626,34 @@ int main()
                             comprobar2Op(lo);
                             switch(lo)
                             {
-                                case 1: ordenPrecio(); break;
+                                case 1: ordenPrecio(categoria, productos); break;
 
-                                case 2: ordenAlfabetico(); break;
+                                case 2: ordenAlfabetico(categoria, productos); break;
                             }
                             break;
                         }
-
                 }
 
 
 
                 break;
             case 4:
-
+                {
+                string lo;
                 //Busca un producto en especifico
+                cout<<"Ingrese el nombre: "<<endl;
+                cin>>lo;
+
                 break;
+                }
             case 5:
                 //Realiza la venta de un producto
                 break;
             case 6:
                 //Termina el programa
                 break;
-            default:
-                cout<<"Ingrese opcion correcta\n";
+            //default:
+                //cout<<"Ingrese opcion correcta\n";
 
             }
         cout<<endl;
@@ -413,7 +661,7 @@ int main()
         system("cls");
     }
     while(op!=6);
-    return 32;
+    return 0;
 }
 
 void printMenu()
@@ -431,43 +679,120 @@ void printMenu()
 void printCategorias()
 {
     /*system("cls");*/
-    cout<<"\n\n 1. Audifonos "  <<endl
-        <<" 2. Computadoras "   <<endl
-        <<" 3. Impresoras "     <<endl
-        <<" 4. Software "       <<endl
-        <<" 5. Television "     <<endl
-        <<"\nIngrese una opcion"<<endl;
+    cout<<"\n\n 1. Audifonos "   <<endl
+        <<" 2. Computadoras "    <<endl
+        <<" 3. Impresoras "      <<endl
+        <<" 4. Software "        <<endl
+        <<" 5. Television "      <<endl
+        <<"\nIngrese una opcion" <<endl;
 
 
 }
-
 
 void printComponentes(){
 
-    cout<<"Componentes"<<endl;
-
-}
-
-
-
-
-
-void ordenPrecio(){
-
- cout<<"jiji";
-
+    cout<<"Componentes"    <<endl
+        <<"1. Fuente"      <<endl
+        <<"2. CPU"         <<endl
+        <<"3. Memoria RAM" <<endl
+        <<"4. HDD"         <<endl
+        <<"5. GPU"         <<endl
+        <<"6. MotherBoard" <<endl
+        <<"7. Case"        <<endl
+        <<"8. Perifericos" <<endl
+                           <<endl;
 
 
 }
 
 
 
-void ordenAlfabetico(){
 
 
-cout<<"jejej";
+void ordenPrecio(string categoria,vector<Producto *> productos)
+{
+    vector<int> pos;
+    int i=0,x=0;
+    for(;i<int(productos.size());i++)
+    {
+        if(productos[i]->getCategoria()==categoria)
+        {
+            pos.push_back(i);
+        }
+    }
+    vector <int>temp=pos;
+    for(i=0;i<int(pos.size());i++)
+    {
+        for(int j=0;j<int(pos.size());j++)
+        {
+            //if(strcmp(producto2[i],producto2[j])<0)
+            if(productos[i]->getPrecio()>productos[j]->getPrecio())
+            {
+                int p1;
+                p1=temp[i];
+                temp[i]=temp[j];
+                temp[j]=p1;
+            }
+        }
+    }
+    pos=temp;
+
+    i=0;
+    for(;i<int(pos.size());i++,x++)
+        productos[(pos[x])]->getData();
+}
 
 
+
+void ordenAlfabetico(string categoria,vector<Producto *> productos)
+{
+/*    vector<int> pos;
+    vector<int>::iterator it;
+    int i=0;
+    for(int f=0; int(f<productos.size());f++)
+    {
+        it = find(productos.begin(),productos.end(),categoria);
+        if(it==categoria)
+            {
+                it=i++;
+                pos.push_back(it);
+            }
+    }
+    int *point=&pos;
+    for(int i=0;i<pos.size();i++)
+    {
+        cout<<"asds\n";
+    }*/
+
+    vector<int> pos;
+    int i=0,x=0;
+    for(;i<int(productos.size());i++)
+    {
+        if(productos[i]->getCategoria()==categoria)
+        {
+            pos.push_back(i);
+        }
+    }
+    vector <int>temp=pos;
+    for(i=0;i<int(pos.size());i++)
+    {
+        for(int j=0;j<int(pos.size());j++)
+        {
+            //if(strcmp(producto2[i],producto2[j])<0)
+            if(productos[i]->getNombre()>productos[j]->getNombre())
+            {
+                int p1;
+                p1=temp[i];
+                temp[i]=temp[j];
+                temp[j]=p1;
+            }
+        }
+    }
+    pos=temp;
+
+    i=0;
+    for(;i<int(pos.size());i++,x++)
+        productos[(pos[x])]->getData();
 }
 
 
@@ -501,7 +826,7 @@ while(x!=1 && x!=2 && x!=3 && x!=4)
 
 }
 
-void comprobarOp5(int &x){
+void comprobar5Op(int &x){
 
 while(x!=1 && x!=2 && x!=3 && x!=4 && x!=5)
     {
@@ -511,7 +836,18 @@ while(x!=1 && x!=2 && x!=3 && x!=4 && x!=5)
 
 }
 
-void comprobarOp8(int &x){
+void comprobar6Op(int &x){
+
+while(x!=1 && x!=2 && x!=3 && x!=4 && x!=5 && x!=6)
+    {
+    cout<<"Opcion Incorrecta\n";
+    cin>>x;
+    }
+
+}
+
+
+void comprobar8Op(int &x){
 
 while(x!=1 && x!=2 && x!=3 && x!=4 && x!=5 && x!=6 && x!=7 && x!=8)
     {
